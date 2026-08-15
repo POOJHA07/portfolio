@@ -1,47 +1,136 @@
-function Hero() {
-  return (
-    <section className="min-h-screen bg-black px-6 text-white">
-      <div className="mx-auto flex min-h-screen max-w-6xl items-center">
-        <div className="max-w-4xl">
+import "./Hero.css";
 
-          <p className="mb-6 text-sm uppercase tracking-[0.3em] text-gray-400">
-            Software Engineer · AI · Cloud · Data
+export default function Hero() {
+  return (
+    <section className="hero" id="home">
+
+      <div className="hero-container">
+
+        {/* LEFT — YOUR STORY */}
+        <div className="hero-content">
+
+          <p className="hero-eyebrow">
+            SOFTWARE ENGINEERING · AI · DATA
           </p>
 
-          <h1 className="text-5xl font-bold leading-tight tracking-tight sm:text-6xl md:text-7xl">
-            Building software
-            <br />
-            that solves
-            <br />
-            <span className="text-gray-500">real problems.</span>
+          <h1 className="hero-title">
+            POOJHA 
+            <br/>
+            <span><i>V R</i></span>
+            
           </h1>
 
-          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-gray-400">
-            I'm Poojha, an Integrated M.Tech Software Engineering student
-            passionate about building intelligent, scalable and reliable
-            software systems.
-          </p>
+          <div className="hero-story">
 
-          <div className="mt-10 flex flex-wrap gap-4">
-            <a
-              href="#projects"
-              className="rounded-full bg-white px-6 py-3 text-sm font-medium text-black transition hover:scale-105"
-            >
-              View Projects
+            <p className="hero-role">
+              Software Engineering Student
+            </p>
+
+            <p className="hero-description">
+              I'm an Integrated M.Tech Software Engineering student
+              at VIT, interested in building intelligent systems
+              across software, data and AI.
+            </p>
+
+            <p className="hero-description secondary">
+              I enjoy taking complex problems, breaking them down,
+              and turning them into practical, reliable software.
+            </p>
+
+          </div>
+
+          {/* ACTIONS */}
+          <div className="hero-actions">
+
+            <a href="#projects" className="hero-button primary">
+              Explore Projects
+              <span>↗</span>
             </a>
 
             <a
-              href="#contact"
-              className="rounded-full border border-white/20 px-6 py-3 text-sm font-medium transition hover:bg-white hover:text-black"
+              href="/resume.pdf"
+              download
+              className="hero-button secondary"
             >
-              Contact Me
+              Download Resume
+              <span>↓</span>
             </a>
+
           </div>
 
         </div>
-      </div>
-    </section>
-  )
-}
 
-export default Hero
+
+        {/* RIGHT — PHOTO */}
+        <div className="hero-visual">
+
+          <div className="hero-photo-wrapper">
+
+            <div className="hero-photo">
+
+              {/* Replace this placeholder with your photo later */}
+              <div className="photo-placeholder">
+                <span>YOUR PHOTO</span>
+                <small>src/assets/profile.jpg</small>
+              </div>
+
+            </div>
+
+            <div className="photo-caption">
+              <span>POOJHA V R</span>
+              <span>SOFTWARE ENGINEERING · VIT</span>
+            </div>
+
+          </div>
+
+
+          {/* POPPED-UP NOTE */}
+          <div className="hero-note">
+
+            <div className="note-pin" />
+
+            <p className="note-heading">
+              CURRENTLY EXPLORING
+            </p>
+
+            <div className="note-list">
+              <span>Backend</span>
+              <span>Data Engineering</span>
+              <span>AI / ML</span>
+              <span>Cloud</span>
+              <span>Systems</span>
+            </div>
+
+            <div className="note-arrow">
+              ↗
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      {/* BOTTOM */}
+      <div className="hero-bottom">
+
+        <div className="hero-scroll">
+          <span className="scroll-line" />
+          <span>SCROLL TO EXPLORE</span>
+        </div>
+
+        <div className="hero-location">
+          VIT · INDIA
+        </div>
+
+        <a href="#about" className="hero-next">
+          Continue
+          <span>↓</span>
+        </a>
+
+      </div>
+
+    </section>
+  );
+}

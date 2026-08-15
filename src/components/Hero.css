@@ -1,0 +1,649 @@
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+  position: relative;
+  min-height: calc(100vh - 95px);
+
+  display: flex;
+  align-items: center;
+
+  padding: 100px 6vw 70px;
+
+  background: #e7e7e5;
+  color: #181818;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   MAIN LAYOUT
+   ========================================================= */
+
+.hero-container {
+  width: 100%;
+  max-width: 1240px;
+
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(280px, 0.8fr);
+
+  align-items: center;
+
+  gap: 70px;
+}
+
+
+/* =========================================================
+   LEFT — STORY
+   ========================================================= */
+
+.hero-content {
+  max-width: 760px;
+}
+
+.hero-eyebrow {
+  margin: 0 0 22px;
+
+  color: #777774;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  letter-spacing: 0.18em;
+}
+
+
+/* Name */
+
+.hero-title {
+  margin: 0;
+
+  color: #181818;
+
+  font-size: clamp(64px, 8vw, 112px);
+
+  font-weight: 650;
+
+  line-height: 0.84;
+
+  letter-spacing: -0.07em;
+}
+
+.hero-title span {
+  color: #777774;
+}
+
+
+/* Story */
+
+.hero-story {
+  margin-top: 34px;
+
+  max-width: 590px;
+}
+
+.hero-role {
+  margin: 0 0 12px;
+
+  color: #252525;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  letter-spacing: -0.01em;
+}
+
+.hero-description {
+  margin: 0;
+
+  color: #555552;
+
+  font-size: 16px;
+
+  line-height: 1.7;
+}
+
+.hero-description.secondary {
+  margin-top: 13px;
+
+  color: #777774;
+}
+
+
+/* =========================================================
+   ACTIONS
+   ========================================================= */
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-top: 30px;
+}
+
+.hero-button {
+  height: 44px;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 13px;
+
+  padding: 0 16px;
+
+  border-radius: 7px;
+
+  text-decoration: none;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  transition:
+    transform 180ms ease,
+    background 180ms ease;
+}
+
+.hero-button.primary {
+  background: #181818;
+  color: #ffffff;
+}
+
+.hero-button.primary:hover {
+  background: #30302e;
+  transform: translateY(-2px);
+}
+
+.hero-button.secondary {
+  border: 1px solid #c8c8c5;
+
+  background: rgba(255, 255, 255, 0.28);
+
+  color: #292927;
+}
+
+.hero-button.secondary:hover {
+  background: #ffffff;
+
+  transform: translateY(-2px);
+}
+
+.hero-button span {
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   RIGHT — PHOTO
+   ========================================================= */
+
+.hero-visual {
+  position: relative;
+
+  width: 100%;
+
+  min-height: 480px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Photo itself */
+
+.hero-photo-wrapper {
+  position: relative;
+
+  width: 300px;
+
+  transform: rotate(1.5deg);
+
+  transition: transform 350ms ease;
+}
+
+.hero-photo-wrapper:hover {
+  transform: rotate(0deg) translateY(-4px);
+}
+
+.hero-photo {
+  width: 100%;
+
+  aspect-ratio: 0.76;
+
+  padding: 7px;
+
+  background: #f7f7f5;
+
+  box-shadow:
+    14px 18px 40px rgba(0, 0, 0, 0.10);
+}
+
+
+/* Placeholder */
+
+.photo-placeholder {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  background: #c8c8c5;
+
+  color: #666663;
+}
+
+.photo-placeholder span {
+  font-size: 10px;
+  font-weight: 600;
+
+  letter-spacing: 0.15em;
+}
+
+.photo-placeholder small {
+  margin-top: 7px;
+
+  color: #858582;
+
+  font-size: 8px;
+}
+
+
+/* Real image */
+
+.hero-photo-img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+
+/* Caption */
+
+.photo-caption {
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 9px;
+
+  color: #777774;
+
+  font-size: 7px;
+  font-weight: 600;
+
+  letter-spacing: 0.13em;
+}
+
+
+/* =========================================================
+   POPPED-UP NOTE
+   ========================================================= */
+
+.hero-note {
+  position: absolute;
+
+  right: 0;
+  bottom: 55px;
+
+  width: 185px;
+
+  padding: 15px 16px 16px;
+
+  background: #f7f7f4;
+
+  border: 1px solid #d7d7d4;
+
+  box-shadow:
+    8px 12px 25px rgba(0, 0, 0, 0.08);
+
+  transform: rotate(-3deg);
+
+  transition:
+    transform 250ms ease,
+    box-shadow 250ms ease;
+}
+
+.hero-note:hover {
+  transform: rotate(0deg) translateY(-4px);
+
+  box-shadow:
+    10px 17px 30px rgba(0, 0, 0, 0.10);
+}
+
+
+/* Small paper pin */
+
+.note-pin {
+  position: absolute;
+
+  top: -5px;
+  left: 50%;
+
+  width: 9px;
+  height: 9px;
+
+  border-radius: 50%;
+
+  background: #777774;
+
+  transform: translateX(-50%);
+
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Note heading */
+
+.note-heading {
+  margin: 0 0 10px;
+
+  color: #777774;
+
+  font-size: 8px;
+  font-weight: 700;
+
+  letter-spacing: 0.15em;
+}
+
+
+/* Note items */
+
+.note-list {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 5px;
+}
+
+.note-list span {
+  padding: 5px 7px;
+
+  border: 1px solid #d7d7d4;
+
+  background: #ffffff;
+
+  color: #4f4f4c;
+
+  font-size: 8px;
+
+  border-radius: 3px;
+}
+
+
+/* Note arrow */
+
+.note-arrow {
+  position: absolute;
+
+  right: 12px;
+  bottom: 10px;
+
+  color: #777774;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   BOTTOM
+   ========================================================= */
+
+.hero-bottom {
+  position: absolute;
+
+  left: 6vw;
+  right: 6vw;
+  bottom: 25px;
+
+  max-width: 1240px;
+
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+}
+
+
+/* Scroll */
+
+.hero-scroll {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  color: #858582;
+
+  font-size: 8px;
+  font-weight: 600;
+
+  letter-spacing: 0.15em;
+}
+
+.scroll-line {
+  width: 28px;
+  height: 1px;
+
+  background: #8b8b88;
+}
+
+
+/* Location */
+
+.hero-location {
+  position: absolute;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  color: #999996;
+
+  font-size: 8px;
+  font-weight: 600;
+
+  letter-spacing: 0.15em;
+}
+
+
+/* Continue */
+
+.hero-next {
+  margin-left: auto;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  color: #666663;
+
+  text-decoration: none;
+
+  font-size: 8px;
+  font-weight: 600;
+
+  letter-spacing: 0.15em;
+
+  transition: color 180ms ease;
+}
+
+.hero-next span {
+  width: 29px;
+  height: 29px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #c6c6c3;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.3);
+
+  font-size: 13px;
+
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.hero-next:hover {
+  color: #181818;
+}
+
+.hero-next:hover span {
+  background: #181818;
+  color: #ffffff;
+
+  transform: translateY(3px);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 950px) {
+
+  .hero {
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+
+  .hero-container {
+    grid-template-columns: minmax(0, 1.5fr) minmax(250px, 0.8fr);
+
+    gap: 45px;
+  }
+
+  .hero-title {
+    font-size: clamp(60px, 9vw, 90px);
+  }
+
+  .hero-photo-wrapper {
+    width: 260px;
+  }
+
+  .hero-note {
+    right: -15px;
+  }
+
+  .hero-bottom {
+    left: 5vw;
+    right: 5vw;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+  .hero {
+    min-height: auto;
+
+    padding: 105px 22px 90px;
+  }
+
+  .hero-container {
+    grid-template-columns: 1fr;
+
+    gap: 55px;
+  }
+
+  .hero-content {
+    max-width: 650px;
+  }
+
+  .hero-title {
+    font-size: clamp(64px, 18vw, 90px);
+  }
+
+  .hero-description {
+    font-size: 15px;
+  }
+
+  .hero-visual {
+    min-height: 470px;
+  }
+
+  .hero-photo-wrapper {
+    width: 280px;
+  }
+
+  .hero-note {
+    right: 2%;
+    bottom: 40px;
+  }
+
+  .hero-bottom {
+    left: 22px;
+    right: 22px;
+  }
+
+  .hero-location {
+    display: none;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .hero {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .hero-title {
+    font-size: 62px;
+  }
+
+  .hero-actions {
+    align-items: stretch;
+
+    flex-direction: column;
+  }
+
+  .hero-button {
+    justify-content: center;
+  }
+
+  .hero-photo-wrapper {
+    width: 250px;
+  }
+
+  .hero-note {
+    width: 175px;
+    right: 0;
+  }
+
+  .hero-scroll {
+    display: none;
+  }
+
+  .hero-bottom {
+    justify-content: flex-end;
+  }
+}
