@@ -1,39 +1,130 @@
+import { useState } from 'react'
+import './Navbar.css'
+
+const mainLinks = [
+  { label: 'About', href: '#about' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Skills', href: '#skills' },
+]
+
+const moreLinks = [
+  { label: 'Education', href: '#education' },
+  { label: 'Achievements', href: '#achievements' },
+  { label: 'Certifications', href: '#certifications' },
+  { label: 'Languages', href: '#languages' },
+]
+
 function Navbar() {
+  const [moreOpen, setMoreOpen] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
+
+  const closeMenus = () => {
+    setMoreOpen(false)
+    setMobileOpen(false)
+  }
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 px-6 py-5">
-      <div className="mx-auto flex max-w-6xl items-center justify-between">
-        
-        <a href="#" className="text-xl font-bold tracking-tight">
-          POOJHA.
+    <header className="navbar-wrapper">
+      <nav className="navbar">
+
+        {/* Logo */}
+        <a href="#" className="navbar-logo" onClick={closeMenus}>
+          POOJHA V R
         </a>
 
-        <div className="hidden items-center gap-8 md:flex">
-          <a href="#about" className="text-sm text-gray-400 transition hover:text-white">
-            About
-          </a>
+        {/* Desktop Navigation */}
+        <div className="navbar-links">
 
-          <a href="#skills" className="text-sm text-gray-400 transition hover:text-white">
-            Skills
-          </a>
+          {mainLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              className="navbar-link"
+            >
+              {link.label}
+            </a>
+          ))}
 
-          <a href="#projects" className="text-sm text-gray-400 transition hover:text-white">
-            Projects
-          </a>
+          {/* More Dropdown */}
+          <div className="navbar-more">
+            <button
+              className={`navbar-link navbar-more-button ${
+                moreOpen ? 'active' : ''
+              }`}
+              onClick={() => setMoreOpen((prev) => !prev)}
+              aria-expanded={moreOpen}
+            >
+              More
+              <span className={`more-arrow ${moreOpen ? 'open' : ''}`}>
+                ↓
+              </span>
+            </button>
 
-          <a href="#contact" className="text-sm text-gray-400 transition hover:text-white">
+            {moreOpen && (
+              <div className="more-menu">
+                {moreLinks.map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    className="more-menu-link"
+                    onClick={closeMenus}
+                  >
+                    <span>{link.label}</span>
+                    <span className="more-menu-arrow">↗</span>
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+
+        </div>
+
+        {/* Contact */}
+        <div className="navbar-right">
+          <a
+            href="#contact"
+            className="navbar-contact"
+          >
             Contact
+            <span>↗</span>
           </a>
         </div>
 
-        <a
-          href="#contact"
-          className="rounded-full border border-white/20 px-5 py-2 text-sm transition hover:bg-white hover:text-black"
+        {/* Mobile Button */}
+        <button
+          className={`navbar-mobile-button ${
+            mobileOpen ? 'open' : ''
+          }`}
+          onClick={() => setMobileOpen((prev) => !prev)}
+          aria-label="Toggle navigation"
+          aria-expanded={mobileOpen}
         >
-          Let's Talk
-        </a>
+          <span />
+          <span />
+        </button>
 
-      </div>
-    </nav>
+      </nav>
+
+      {/* Mobile Menu */}
+      {mobileOpen && (
+        <div className="mobile-menu">
+
+          {[...mainLinks, ...moreLinks].map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              className="mobile-menu-link"
+              onClick={closeMenus}
+            >
+              {link.label}
+              <span>↗</span>
+            </a>
+          ))}
+
+        </div>
+      )}
+    </header>
   )
 }
 
