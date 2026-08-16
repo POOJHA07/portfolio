@@ -1,54 +1,109 @@
-const achievements = [
-  {
-    title: 'Academic Excellence',
-    description:
-      'Integrated M.Tech Software Engineering student with a strong academic record.',
-  },
-  {
-    title: 'Abacus Competition',
-    description:
-      'Secured 1st place in Abacus at the Tamil Nadu and Puducherry level.',
-  },
-  {
-    title: 'Patent / Publication',
-    description:
-      'Contributed to the Upiverse patent/publication.',
-  },
-]
+import "./Achievements.css";
 
-function Achievements() {
+export default function Achievements() {
+  const achievements = [
+    {
+      number: "01",
+      title: "1st Place — Abacus",
+      description: "Tamil Nadu + Puducherry",
+    },
+    {
+      number: "02",
+      title: "AWS Certified",
+      description: "Cloud Practitioner",
+    },
+    {
+      number: "03",
+      title: "Patent / Publication",
+      description: "Upiverse — Secured Offline UPI Payment Platform",
+    },
+    {
+      number: "04",
+      title: "Academic Excellence",
+      description: "9th Rank · Software Engineering",
+    },
+  ];
+
   return (
-    <section id="achievements" className="bg-black px-6 py-24 text-white">
-      <div className="mx-auto max-w-6xl">
+    <section className="achievements" id="achievements">
 
-        <p className="mb-4 text-sm uppercase tracking-[0.3em] text-gray-500">
-          Achievements
-        </p>
+      <div className="achievements-container">
 
-        <h2 className="mb-12 text-4xl font-semibold sm:text-5xl">
-          Beyond the <span className="text-gray-500">code.</span>
-        </h2>
+        {/* HEADER */}
+        <div className="achievements-header">
 
-        <div className="grid gap-4 md:grid-cols-3">
+          <div>
+            <p className="achievements-eyebrow">
+              07 / ACHIEVEMENTS
+            </p>
+
+            <h2 className="achievements-title">
+              Things I've
+              <br />
+              <span>earned along the way.</span>
+            </h2>
+          </div>
+
+          <p className="achievements-intro">
+            A few milestones, recognitions and moments
+            that shaped my journey so far.
+          </p>
+
+        </div>
+
+
+        {/* LIST */}
+        <div className="achievements-list">
+
           {achievements.map((achievement) => (
             <article
-              key={achievement.title}
-              className="rounded-2xl border border-white/10 p-6"
+              className="achievement-item"
+              key={achievement.number}
             >
-              <h3 className="text-xl font-medium">
-                {achievement.title}
-              </h3>
 
-              <p className="mt-4 leading-relaxed text-gray-400">
-                {achievement.description}
-              </p>
+              <span className="achievement-number">
+                {achievement.number}
+              </span>
+
+              <div className="achievement-content">
+
+                <h3>
+                  {achievement.title}
+                </h3>
+
+                <p>
+                  {achievement.description}
+                </p>
+
+              </div>
+
+              <span className="achievement-arrow">
+                ↗
+              </span>
+
             </article>
           ))}
+
+        </div>
+
+
+        {/* FOOTER */}
+        <div className="achievements-footer">
+
+          <span>
+            MORE TO COME
+          </span>
+
+          <span className="achievements-line" />
+
+          <span>
+            2022 — 2027
+          </span>
+
         </div>
 
       </div>
-    </section>
-  )
-}
 
-export default Achievements
+    </section>
+  );
+}
